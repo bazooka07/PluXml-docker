@@ -27,19 +27,19 @@ for version in ${VERSIONS}; do
 	echo -n ", "
 	unzip -q ${TMPFILE}
 	old_plugins="PluXml-${version}/plugins"
-	rm -R ${old_plugins}
+	rm -Rf ${old_plugins}
 	ln -s $(pwd)/plugins ${old_plugins}
-	rm -R PluXml-${version}/data
+	rm -Rf PluXml-${version}/data
+	rm -Rf PluXml-${version}/.git*
 	# rm PluXml-${version}/config.php
 	chown -R www-data PluXml-${version} PluXml-${version}/config.php PluXml-${version}/themes
-	rm "PluXml-${version}/install.php"
-	ln -s "${EXTRA_LIB}/install.php" "PluXml-${version}/install.php"
+	rm PluXml-${version}/install.php
+	ln -s ${EXTRA_LIB}/install.php PluXml-${version}/install.php
 done
 echo "\n"
 rm -f ${TMPFILE}
 
-INDEX="${EXTRA_LIB}/pluxml.php"
-chown www-data ${INDEX}
-ln -s ${INDEX} index.php
+ln -s ${EXTRA_LIB}/index.php
+ln -s ${EXTRA_LIB}/img
 
-echo "Ready to serve !"
+echo "Vous pouvez utliser maintenant votre navigateur Internet !"

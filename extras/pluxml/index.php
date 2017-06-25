@@ -41,19 +41,33 @@ if(!empty($_GET['pluxml-version'] and !empty($_GET['new-site']))) {
 	<title>PluXml multi-versions</title>
 	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
 	<style type="text/css">
+		body { background: aliceBlue; }
 		a { text-decoration: none; }
 		a:hover { background-color: green; color: #fff; }
 		h1 { text-align: center; width: 50%; margin: 0 auto; }
-		.flex { display: flex; }
+		.flex { display: flex; justify-content: center; }
+		.center { text-align: center; }
 		#new-site { max-width: 150px; }
+		#main div { background-color: #fff; }
 		@media screen and (min-width: 710px) {
 			#main { display: flex; justify-content: center; }
-			#main div { min-width: 350px; border: 1px solid #444; padding: 0.3rem; margin: auto 5px; }
+			#main div { min-width: 350px; border: 1px solid #ced3ea; padding: 0.3rem; margin: auto 5px; box-shadow: 5px 5px 3px #a5d6e6; }
 		}
 	</style>
 </head>
 <body>
-<h1><a href="index.php?phpinfo=1"  target="_blank">PHP <?php echo phpversion(); ?></a></h1>
+<div class="flex">
+	<div>
+		<a href="http://www.pluxml.org" target="_blank"><img src="img/pluxml.png" alt="PluXml" /></a>
+	</div>
+	<div class="center">
+		<h1>PHP <?php echo phpversion(); ?></h1>
+		<p><a href="index.php?phpinfo=1"  target="_blank">phpinfo</a></p>
+	</div>
+	<div>
+		<a href="http://www.docker.com" target="blank"><img src="img/docker.png" alt="Docker" /></a>
+	</div>
+</div>
 <div id="main">
 	<div>
 		<h2>PluXml multi-versions</h2>
